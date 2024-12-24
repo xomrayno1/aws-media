@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: MediaService
+  profiles:
+    active:
+    - dev
