@@ -16,6 +16,10 @@ import com.media.s3.S3Service;
 
 import lombok.AllArgsConstructor;
 
+
+/**
+ * exampel api upload
+ * **/
 @RestController
 @RequestMapping("/api/v1/upload")
 @AllArgsConstructor
@@ -26,13 +30,13 @@ public class UploadController {
 	
 	@PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file) throws IOException{
-		s3Service.putObject(s3Buckets.getCustomer(),  "upload/"+ file.getOriginalFilename(), file.getBytes());
+		s3Service.putObject(s3Buckets.getMedia(),  "upload/"+ file.getOriginalFilename(), file.getBytes());
 		return ResponseEntity.ok("success");
 	}
 	
 	@GetMapping(produces = MediaType.IMAGE_JPEG_VALUE)
 	public ResponseEntity<byte[]> image(@RequestParam("imageName") String imageName){
-		byte[] imageBytes = s3Service.getObject(s3Buckets.getCustomer(), "upload/" + imageName);
+		byte[] imageBytes = s3Service.getObject(s3Buckets.getMedia(), "upload/" + imageName);
 		return ResponseEntity.ok(imageBytes);
 	}
 

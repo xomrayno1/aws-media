@@ -2,4 +2,4 @@ aws:
   region: us-east-1
   s3:
     buckets:
-      customer: tamnc-media-dev
+      media: ${MEDIA_BUCKET_NAME:tamnc-media-dev}

@@ -11,5 +11,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class S3Buckets {
-	private String customer;
+	private String media;
 }

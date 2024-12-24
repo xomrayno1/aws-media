@@ -2,6 +2,7 @@ package com.media.s3;
 
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
 import software.amazon.awssdk.core.ResponseInputStream;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -10,6 +11,7 @@ import software.amazon.awssdk.services.s3.model.GetObjectResponse;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 @Service
+@Slf4j(topic = "S3-SERVICE")
 public class S3Service {
 	
 	private final S3Client s3;
@@ -39,7 +41,5 @@ public class S3Service {
 			throw new RuntimeException();
 		}
 	}
-	
-	
 
 }
